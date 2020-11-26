@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "server": "bash bin/server.sh"
+  },
   "author": "loveyousomuch554@gmail.com",
   "license": "ISC",
   "devDependencies": {
