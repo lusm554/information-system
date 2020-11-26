@@ -7,19 +7,19 @@ class Discipline {
     this.res = res
   }
 
-  async save() {
-    new DisciplineModel( {"Название": this.name} ).save((err, doc) => {
-      if (err) {
+  save() {
+    new DisciplineModel( {"Название": this.name} ).save()
+      .then((doc) => {
+        this.res.json(doc)
+      })
+      .catch((err) => {
         if (err instanceof mongoose.Error.ValidationError) {
           this.res.status(400).send('The name of the discipline should be no more than 20 characters.')
         } else {
           this.res.status(500).send('An error occurred while saving discipline.')
           console.log(err)
         }
-        return;
-      }
-      this.res.json(doc)
-    })
+      })
   }
 
   static get(id, res, bycode = false) {
