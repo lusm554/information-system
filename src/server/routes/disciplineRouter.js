@@ -8,7 +8,7 @@ Router.get('/', (req, res) => {
 Router.get('/:id', (req, res) => {
   const { id } = req.params
   const { bycode } = req.query
-  Discipline.get(id, res, bycode==='false'||bycode===undefined?false:true)
+  Discipline.get(id, res, !(bycode === 'false' || bycode === undefined))
 })
 
 Router.post('/new', (req, res) => {
@@ -19,7 +19,7 @@ Router.post('/new', (req, res) => {
 Router.delete('/:id', (req, res) => {
   const { id } = req.params
   const { bycode } = req.query
-  Discipline.remove(id, res, bycode==='false'||bycode===undefined?false:true)
+  Discipline.remove(id, res, !(bycode === 'false' || bycode === undefined))
 })
 
 exports.disciplineRouter = Router
