@@ -20,7 +20,7 @@ class Model {
       })
   }
 
-  get(id, res, by_code = false) {
+  get(id, res, { by_code = false }) {
     if (by_code) {
       handleReq (
         this.model.findByCode(id),

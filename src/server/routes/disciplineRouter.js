@@ -7,8 +7,10 @@ Router.get('/', (req, res) => {
 
 Router.get('/:id', (req, res) => {
   const { id } = req.params
-  const { by_code } = req.query
-  Discipline.get(id, res, !(by_code === 'false' || by_code === undefined))
+  let { by_code } = req.query
+  by_code = !(by_code === 'false' || by_code === undefined)
+
+  Discipline.get(id, res, { by_code })
 })
 
 Router.post('/new', (req, res) => {
