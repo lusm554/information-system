@@ -1,5 +1,11 @@
 const mongoose = require('mongoose')
 
+const methods = {
+  by_code(id, res, model) {
+    handleReq(model.findByCode(id), res)
+  }
+}
+
 class Model {
   constructor(model) {
     this.model = model
@@ -20,18 +26,18 @@ class Model {
       })
   }
 
-  get(id, res, { by_code = false }) {
-    if (by_code) {
-      handleReq (
-        this.model.findByCode(id),
-        res
-      )
-    } else {
-      handleReq(
-         this.model.findById(id),
-         res
-      )
+  get(id, res, options) {
+    for (let method in methods) {
+      if (!(options[method] === 'false' || options[method] === undefined)) {
+        methods[method](id, res, this.model)
+        return;
+      }
     }
+
+    handleReq(
+      this.model.findById(id),
+      res
+    )
   }
 
   getAll(res) {
