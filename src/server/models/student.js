@@ -18,7 +18,7 @@ const StudentSchema = new Schema(
 			required: true
 		},
 		"Дата рождения": { type: Date, required: true },
-		"Код группы": { type: mongoose.Schema.Types.ObjectId, ref: 'Группа', required: true },
+		"Код_группы": { type: mongoose.Schema.Types.ObjectId, ref: 'Группа', required: true },
 		"Паспорт-серия": { type: String, maxlength: 4 },
 		"Паспорт-номер": { type: String, maxlength: 6 },
 		"Фотография": { type: Buffer },
