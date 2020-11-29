@@ -15,9 +15,10 @@ app.use(require('cors')()) // Cors for requests
 app.use(bodyParser.json())
 
 const { disciplineRouter } = require('./routes/disciplineRouter')
-const { GroupRouter } = require('./routes/groupRouter')
+const { groupRouter } = require('./routes/groupRouter')
+const { teacherRouter } = require('./routes/teacherRouter')
 
 app.use('/discipline', disciplineRouter)
-app.use('/group', GroupRouter)
+app.use('/group', groupRouter)
 
 app.listen(process.env.PORT)

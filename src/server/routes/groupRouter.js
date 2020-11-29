@@ -45,4 +45,4 @@ Router.delete('/:id', (req, res) => {
 	Group.delete(id, res, {})
 })
 
-exports.GroupRouter = Router
+exports.groupRouter = Router
