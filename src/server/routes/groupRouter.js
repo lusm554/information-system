@@ -11,26 +11,8 @@ Router.get('/:id', (req, res) => {
 })
 
 Router.post('/new', (req, res) => {
-	const {
-		code,
-		number,
-		date_created,
-		form_of_study,
-		price,
-		is_study_over
-	} = req.body
-
-	Group.save(
-		{
-			'Код группы': code,
-			'Номер группы': number,
-			'Дата образования': date_created,
-			'Форма обучения': form_of_study,
-			'Плата за семестр': price,
-			'Обучение закончено': is_study_over
-		},
-		res
-	)
+	const { data } = req.body
+	Group.save(data, res)
 })
 
 Router.put('/:id', (req, res) => {

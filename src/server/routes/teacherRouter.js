@@ -11,28 +11,8 @@ Router.get('/:id', (req, res) => {
 })
 
 Router.post('/new', (req, res) => {
-	const {
-		lastName,
-		firstName,
-		middleName,
-		gender,
-		birthday,
-		date,
-		phone
-	} = req.body
-
-	Teacher.save(
-		{
-			"Фамилия": lastName,
-			"Имя": firstName,
-			"Отчество": middleName,
-			"Пол": gender,
-			"Дата рождения": birthday,
-			"Дата приема": date,
-			"Телефон": phone
-		},
-		res
-	)
+	const { data } = req.body
+	Teacher.save(data, res)
 })
 
 Router.put('/:id', (req, res) => {

@@ -14,9 +14,8 @@ Router.get('/:id', (req, res) => {
 })
 
 Router.post('/new', (req, res) => {
-  const { name } = req.body
-  const field = { 'Название': name }
-  Discipline.save(field, res)
+  const { data } = req.body
+  Discipline.save(data, res)
 })
 
 Router.put('/:id', (req, res) => {
