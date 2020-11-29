@@ -3,6 +3,13 @@ const mongoose = require('mongoose')
 const methods = {
   by_code(id, res, model) {
     handleReq(model.findByCode(id), res)
+  },
+  populate(id, res, model) {
+    handleReq(
+      model.findById(id)
+        .populate('Код_группы'),
+      res
+    )
   }
 }
 

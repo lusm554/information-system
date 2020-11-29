@@ -7,7 +7,7 @@ Router.get('/', (req, res) => {
 
 Router.get('/:id', (req, res) => {
 	const { id } = req.params
-	Student.get(id, res, {})
+	Student.get(id, res, { populate: true })
 })
 
 Router.post('/new', (req, res) => {
