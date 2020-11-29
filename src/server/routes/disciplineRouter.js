@@ -19,6 +19,12 @@ Router.post('/new', (req, res) => {
   Discipline.save(field, res)
 })
 
+Router.put('/:id', (req, res) => {
+  const { id } = req.params
+  const { field } = req.body
+  Discipline.change(id, res, field)
+})
+
 Router.delete('/:id', (req, res) => {
   const { id } = req.params
   let { by_code } = req.query

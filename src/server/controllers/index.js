@@ -58,6 +58,10 @@ class Model {
       )
     }
   }
+
+  change(id, res, field) {
+    handleReq(this.model.findByIdAndUpdate(id, field), res)
+  }
 }
 
 function handleReq(req, res) {

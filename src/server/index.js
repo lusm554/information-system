@@ -1,6 +1,7 @@
 const path = require('path')
 const app = require('express')()
 const mongoose = require('mongoose')
+mongoose.set('useFindAndModify', false)
 const bodyParser = require('body-parser')
 require('dotenv').config({ path: path.join(process.cwd(), 'src', 'config', '.env') })
 
