@@ -45,7 +45,7 @@ class Model {
       })
   }
 
-  delete(id, res, by_code = false) {
+  delete(id, res, { by_code = false }) {
     if (by_code) {
       handleReq(
         this.model.findByCodeAndDelete(id),

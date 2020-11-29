@@ -21,8 +21,9 @@ Router.post('/new', (req, res) => {
 
 Router.delete('/:id', (req, res) => {
   const { id } = req.params
-  const { by_code } = req.query
-  Discipline.delete(id, res, !(by_code === 'false' || by_code === undefined))
+  let { by_code } = req.query
+  by_code = !(by_code === 'false' || by_code === undefined)
+  Discipline.delete(id, res, { by_code })
 })
 
 exports.disciplineRouter = Router
