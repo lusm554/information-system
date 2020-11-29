@@ -9,10 +9,10 @@ const DisciplineSchema = new Schema(
 )
 
 DisciplineSchema.pre('save', async function(next) {
-  const currentDate = new Date()
-  this.updatedAt = currentDate
+  // Update date
+  this.updatedAt = new Date()
   
-  this["Код дисциплины"] = await DisciplineModel.countDocuments() + 1
+  this["Код дисциплины"] = await DisciplineModel.countDocuments() + 1;
   next()
 })
 
