@@ -17,9 +17,11 @@ app.use(bodyParser.json())
 const { disciplineRouter } = require('./routes/disciplineRouter')
 const { groupRouter } = require('./routes/groupRouter')
 const { teacherRouter } = require('./routes/teacherRouter')
+const { studentRouter } = require('./routes/studentRouter')
 
 app.use('/discipline', disciplineRouter)
 app.use('/group', groupRouter)
 app.use('/teacher', teacherRouter)
+app.use('/student', studentRouter)
 
 app.listen(process.env.PORT)
