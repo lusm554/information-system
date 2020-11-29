@@ -12,7 +12,7 @@ class Model {
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
-          res.status(400).send('Validation error.')
+          res.status(400).send(`Validation error: ${error.message}`)
         } else {
           console.log(error)
           res.status(500).send('Error while executing request.')
