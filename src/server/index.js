@@ -20,5 +20,6 @@ const { teacherRouter } = require('./routes/teacherRouter')
 
 app.use('/discipline', disciplineRouter)
 app.use('/group', groupRouter)
+app.use('/teacher', teacherRouter)
 
 app.listen(process.env.PORT)
