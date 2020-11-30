@@ -1,10 +1,10 @@
-const { TeacherModel } = require('../models/teacher')
-const { Model } = require('./index')
+const { TeacherModel } = require('../models/teacher');
+const { Model } = require('./index');
 
 class Teacher extends Model {
-	constructor(model) {
-		super(model);
-	}
+  constructor(model) {
+    super(model);
+  }
 }
 
-exports.Teacher = new Teacher(TeacherModel)
+exports.Teacher = new Teacher(TeacherModel);

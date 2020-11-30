@@ -1,10 +1,10 @@
-const { DisciplineModel } = require('../models/discipline')
-const { Model } = require('./index')
+const { DisciplineModel } = require('../models/discipline');
+const { Model } = require('./index');
 
 class Discipline extends Model {
   constructor(model) {
-    super(model)
+    super(model);
   }
 }
 
-exports.Discipline = new Discipline(DisciplineModel)
+exports.Discipline = new Discipline(DisciplineModel);

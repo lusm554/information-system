@@ -1,10 +1,10 @@
-const { GroupModel } = require('../models/group')
-const { Model } = require('./index')
+const { GroupModel } = require('../models/group');
+const { Model } = require('./index');
 
 class Group extends Model {
-	constructor(model) {
-		super(model)
-	}
+  constructor(model) {
+    super(model);
+  }
 }
 
-exports.Group = new Group(GroupModel)
+exports.Group = new Group(GroupModel);

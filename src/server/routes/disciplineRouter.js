@@ -1,32 +1,32 @@
-const Router = require('express').Router()
-const { Discipline } = require('../controllers/discipline')
+const Router = require('express').Router();
+const { Discipline } = require('../controllers/discipline');
 
 Router.get('/', (req, res) => {
-  Discipline.getAll(res)
-})
+  Discipline.getAll(res);
+});
 
 Router.get('/:id', (req, res) => {
-  const { id } = req.params
-  const options = req.query
-  Discipline.get(id, res, options)
-})
+  const { id } = req.params;
+  const options = req.query;
+  Discipline.get(id, res, options);
+});
 
 Router.post('/new', (req, res) => {
-  const { data } = req.body
-  Discipline.save(data, res)
-})
+  const { data } = req.body;
+  Discipline.save(data, res);
+});
 
 Router.put('/:id', (req, res) => {
-  const { id } = req.params
-  const { field } = req.body
-  Discipline.change(id, res, field)
-})
+  const { id } = req.params;
+  const { field } = req.body;
+  Discipline.change(id, res, field);
+});
 
 Router.delete('/:id', (req, res) => {
-  const { id } = req.params
-  let { by_code } = req.query
-  by_code = !(by_code === 'false' || by_code === undefined)
-  Discipline.delete(id, res, { by_code })
-})
+  const { id } = req.params;
+  let { by_code } = req.query;
+  by_code = !(by_code === 'false' || by_code === undefined);
+  Discipline.delete(id, res, { by_code });
+});
 
-exports.disciplineRouter = Router
+exports.disciplineRouter = Router;

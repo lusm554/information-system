@@ -1,6 +1,6 @@
-const Router = require('express').Router()
-const { DisciplineTeacherRouter } = require('./intermediate/disciplineTeacherRouter')
+const Router = require('express').Router();
+const { DisciplineTeacherRouter } = require('./intermediate/disciplineTeacherRouter');
 
-Router.use('/dt', DisciplineTeacherRouter)
+Router.use('/dt', DisciplineTeacherRouter);
 
-exports.intermediateRouter = Router
+exports.intermediateRouter = Router;
