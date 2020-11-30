@@ -4,12 +4,21 @@ const methods = {
   by_code(id, res, model) {
     handleReq(model.findByCode(id), res)
   },
-  populate(id, res, model) {
-    handleReq(
-      model.findById(id)
-        .populate('Код_группы'),
-      res
-    )
+  populate(id, res, model, { populate_by }) {
+    if (Array.isArray(populate_by)) {
+      handleReq(
+        model.findById(id)
+          .populate(populate_by[0])
+          .populate(populate_by[1]),
+        res
+      )
+    } else {
+      handleReq(
+        model.findById(id)
+          .populate(populate_by),
+        res
+      )
+    }
   }
 }
 
@@ -36,6 +45,10 @@ class Model {
   get(id, res, options) {
     for (let method in methods) {
       if (!(options[method] === 'false' || options[method] === undefined)) {
+        if (options[method] instanceof Object) {
+          methods[method](id, res, this.model, options[method])
+          return;
+        }
         methods[method](id, res, this.model)
         return;
       }

@@ -7,8 +7,7 @@ Router.get('/', (req, res) => {
 
 Router.get('/:id', (req, res) => {
 	const { id } = req.params
-	const options = req.query
-	Assessment.get(id, res, options)
+	Assessment.get(id, res, { populate: { populate_by: ['Код_студента', 'Код_ПД'] } })
 })
 
 Router.post('/new', (req, res) => {
