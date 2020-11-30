@@ -33,5 +33,14 @@ const GroupSchema = new Schema(
 	}
 )
 
+GroupSchema.pre('save', async function(next) {
+	// Update date
+	this.updatedAt = new Date()
+
+	// Update counter
+	this["Код группы"] = await GroupModel.countDocuments() + 1;
+	next()
+})
+
 const GroupModel = mongoose.model('Группа', GroupSchema)
 exports.GroupModel = GroupModel
