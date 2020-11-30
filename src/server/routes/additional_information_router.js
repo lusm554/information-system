@@ -6,8 +6,8 @@ Router.get('/', (req, res) => {
 })
 
 Router.get('/:id', (req, res) => {
-	const { id } = req.params
-	AdditionalInformation.get(id, res, { populate: { populate_by: 'Код_студента' } })
+const { id } = req.params
+AdditionalInformation.get(id, res, { populate: { populate_by: 'Код_студента' } })
 })
 
 Router.post('/new', (req, res) => {
