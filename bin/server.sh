@@ -13,7 +13,7 @@ if [[ $1 == 'dev' ]]
 then
   nodemon $path
   exit_nodemon
-elif [ $1 == 'build' ];
+elif [[ $1 == 'build' ]];
 then
   mv ./src/config/.example_env  ./src/config/.env
 else
