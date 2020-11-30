@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const AssessmentSchema = new Schema(
 	{
-		"Код записи": String,
+		"Код_записи": Number,
 		"Код_студента": { type: mongoose.Schema.Types.ObjectId, ref: 'Студент', required: true },
 		"Семестр": {
 			type: Number,
@@ -33,6 +33,15 @@ const AssessmentSchema = new Schema(
 		}
 	}
 )
+
+AssessmentSchema.pre('save', async function(next) {
+	// Update date
+	this.updatedAt = new Date()
+
+	// Update counter
+	this["Код_записи"] = await AssessmentModel.countDocuments() + 1;
+	next()
+})
 
 const AssessmentModel = mongoose.model('Оценка', AssessmentSchema)
 exports.AssessmentModel = AssessmentModel
