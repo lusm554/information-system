@@ -19,11 +19,13 @@ const { groupRouter } = require('./routes/groupRouter')
 const { teacherRouter } = require('./routes/teacherRouter')
 const { studentRouter } = require('./routes/studentRouter')
 const { intermediateRouter } = require('./routes/intermediate')
+const { assessmentRouter } = require('./routes/assessmentRouter')
 
 app.use('/discipline', disciplineRouter)
 app.use('/group', groupRouter)
 app.use('/teacher', teacherRouter)
 app.use('/student', studentRouter)
 app.use('/intermediate', intermediateRouter)
+app.use('/assessment', assessmentRouter)
 
 app.listen(process.env.PORT)
